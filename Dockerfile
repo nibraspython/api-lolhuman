@@ -1,11 +1,20 @@
-FROM buildkite/puppeeter:latest
+# Use the official Puppeteer image
+FROM ghcr.io/puppeteer/puppeteer:latest
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install nodejs -y
-
+# Set the working directory
 WORKDIR /app
-COPY . /app
+
+# Copy package.json and package-lock.json first (to optimize caching)
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
-CMD ["npm", "start"]
+
+# Copy the rest of the application files
+COPY . .
+
+# Expose port 8080
 EXPOSE 8080
+
+# Start the application
+CMD ["npm", "start"]
