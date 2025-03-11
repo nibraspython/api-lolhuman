@@ -8,9 +8,9 @@
     "test": "start"
   },
   "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/LoliKillers/Arnz-Api.git"
-  },
+  "type": "git",
+  "url": "https://github.com/nibraspython/api-lolhuman.git"
+}
   "author": "LolKill & Zee",
   "license": "ISC",
   "bugs": {
